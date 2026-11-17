@@ -22,7 +22,7 @@ export default async (req) => {
   if (!query) return json({ error: "The 'query' field is required." }, 400);
   if (query.length > 2000) return json({ error: "Message is too long (2000 characters max)." }, 400);
 
-  const baseUrl = (process.env.DIFY_BASE_URL || "https://dify.ai").replace(/\/+$/, "");
+  const baseUrl = (process.env.DIFY_BASE_URL || "https://api.dify.ai/v1").replace(/\/+$/, "");
 
   try {
     const res = await fetch(`${baseUrl}/chat-messages`, {
